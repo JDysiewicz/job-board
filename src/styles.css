@@ -1,5 +1,27 @@
 /* Generic global styling*/
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Marcellus&family=Merriweather&display=swap");
+
+:root {
+	--grey-100: #f0f0f0;
+	--grey-300: #d3d3d3;
+	--grey-500: #646464;
+	--grey-700: #2c2c2c;
+
+	--primary-blue-100: #7ebaeb;
+	--primary-blue-300: #5299d3;
+	--primary-blue-500: #2484d3;
+	--primary-blue-700: #1d6cad;
+
+	--accent-green-100: #2dbedb;
+	--accent-green-300: #2194ac;
+	--accent-green-500: #176e80;
+	--accent-green-700: #0b5563;
+
+	--font-title: "Merriweather";
+	--font-body: "Marcellus";
+}
 
 html {
-	background-color: #f0f0f0;
+	background-color: var(--grey-100);
 }
