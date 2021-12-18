@@ -31,7 +31,7 @@ We would like to see:
 - Your comfort with GraphQL
 - Your command over HTML and CSS styling
 - Your test automation skills
-  Do not worry about the build/deploy process for the application. Also do not worry about building a complete home page with header, footer, menu and other common components. We only want that the components you do create, be styled properly.
+- Do not worry about the build/deploy process for the application. Also do not worry about building a complete home page with header, footer, menu and other common components. We only want that the components you do create, be styled properly.
 
 **After the test**
 Once you have completed the test please send us an email confirming the same. Please share the code base either over the email or over github. Please also send a few time slots that work for you for the on-site/video technical interview, which can take up to 2.5 hours.
@@ -40,7 +40,7 @@ Once you have completed the test please send us an email confirming the same. Pl
 
 React applications do not have any enforced standard as to how they should be structured/organised. As such, teams are often free to decide what works best for them. I tend to like to split my UI into display and logic; a pattern used to achieve this in previous React iterations was the _"Smart component, Dumb component"_ pattern, in which logic (e.g. data fetching) would be abstracted into a _"smart"_ component, and pass the necessary bits of state down into the _"dumb"_ component, which would be responsible purely for displaying the UI using state from props.
 
-Nowadays, common practice is to use the custom hook pattern instead, whereby logic is extracted into custom hooks. Hooks are then used to build complex logic. To quote Tanner Lindsley who I first learned this pattern from:
+Nowadays, common practice is to use the custom hook pattern instead, whereby logic is extracted into custom hooks. Hooks are then used to build complex logic. To quote Tanner Lindsley from whom I first learned this pattern:
 
 > "Hooks are to logic as components are to UI"
 
@@ -61,7 +61,7 @@ Of course things are never normally this simple, and questions like _"what is a 
 
 ### Logic
 
-As stated above, much of the logic for this application resides in the `hooks/` directory, in which there is one hook per file and there is an `index.ts` file responsible for exporting all of the hooks. This is to keep imports somewhat tidy when importing multiple hooks.
+As stated above, much of the logic for this application resides in the `hooks/` directory, in which there is one hook per file and there is an `index.ts` file responsible for exporting all of the hooks (NB this is a pattern used elsewhere too). This is to keep imports somewhat tidy when importing multiple hooks.
 
 ## Technologies Used/Rationale
 

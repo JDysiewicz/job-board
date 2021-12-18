@@ -1,15 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
+import { JobEntry } from "../../components/atoms";
+import { useGetJobs } from "../../hooks";
+import { Job } from "../../shared/types";
 
 const IndexPage: React.FC = () => {
-	const [count, setCount] = useState(0);
+	const { data, error, status } = useGetJobs();
 
-	const increment = () => setCount((c) => c + 1);
+	if (status === "loading") return <>"Loading..."</>;
+	if (status === "error") return <span>Error: {error?.message}</span>;
+
+	const renderJobs = (jobs: Job[]) => {
+		return jobs.map((job) => <JobEntry job={job} key={job.id} />);
+	};
 
 	return (
-		<div>
-			<h1>Count: {count}</h1>
-			<button onClick={increment}>Increment</button>
-		</div>
+		<>
+			{!data ? (
+				<>"Something went wrong..."</>
+			) : (
+				<div>
+					<h1>Jobs</h1>
+					<ul>{renderJobs(data)}</ul>
+				</div>
+			)}
+		</>
 	);
 };
 
