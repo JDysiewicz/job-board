@@ -1,12 +1,12 @@
 import React from "react";
-import { JobTableWrapper } from "../../components/molecules";
+import { JobTable } from "../../components/molecules";
 import { Container, Title } from "./styles";
 
 const IndexPage: React.FC = () => {
 	return (
 		<Container>
 			<Title>Job Board</Title>
-			<JobTableWrapper />
+			<JobTable />
 		</Container>
 	);
 };

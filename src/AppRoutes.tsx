@@ -1,6 +1,6 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
-import { IndexPage, NotFoundPage } from "./pages";
+import { IndexPage, InternalServerErrorPage, NotFoundPage } from "./pages";
 
 const AppRoutes: React.FC = () => {
 	// Routing handled with easily extensible array of RouteObjects.
@@ -8,6 +8,7 @@ const AppRoutes: React.FC = () => {
 		path: "/",
 		children: [
 			{ path: "/", element: <IndexPage /> },
+			{ path: "/500", element: <InternalServerErrorPage /> },
 			{ path: "*", element: <NotFoundPage /> },
 		],
 	};

@@ -20,11 +20,7 @@ export const TableHeading = styled.th`
 	text-align: center;
 `;
 
-export const JobLink = styled.a`
-	text-decoration: none;
-	color: var(--primary-blue-700);
-	font-weight: bold;
-	:hover {
-		text-decoration: underline;
-	}
+export const Container = styled.div`
+	width: 70%;
+	margin: auto auto;
 `;

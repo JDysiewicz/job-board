@@ -1,3 +1,3 @@
-import JobEntry from "./JobEntry";
 import LoaderSpinner from "./LoaderSpinner";
-export { JobEntry, LoaderSpinner };
+import ExternalLink from "./ExternalLink";
+export { LoaderSpinner, ExternalLink };
