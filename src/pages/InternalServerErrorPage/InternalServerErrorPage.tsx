@@ -1,11 +1,12 @@
 import React from "react";
+import { Container, StyledHeader } from "./style";
 
 const InternalServerErrorPage = () => {
 	return (
-		<div>
-			<h1>Error 500</h1>
-			<p>Please try again later</p>
-		</div>
+		<Container>
+			<StyledHeader>500 - Internal Server Error</StyledHeader>
+			<h2>Oh noes! The job API seems to be down, please try again later</h2>
+		</Container>
 	);
 };
 
