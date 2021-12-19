@@ -8,9 +8,23 @@ export const Table = styled.table`
 export const TableData = styled.td`
 	text-align: center;
 	padding: 1em 0.5em;
+	font-size: 1.1rem;
 `;
+
+export const TableRow = styled.tr``;
 
 export const TableHeading = styled.th`
 	font-size: 1.5rem;
+	font-weight: bolder;
+	color: var(--primary-blue-700);
+	text-align: center;
+`;
+
+export const JobLink = styled.a`
+	text-decoration: none;
+	color: var(--primary-blue-700);
 	font-weight: bold;
+	:hover {
+		text-decoration: underline;
+	}
 `;

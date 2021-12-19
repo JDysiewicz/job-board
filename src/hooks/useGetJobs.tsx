@@ -23,12 +23,14 @@ const convertToJobs = (apiResponse: JobApiResponse[]): Job[] => {
 		const company = job.company.name;
 		const locations = convertToLocations(job);
 		const id = job.id;
+		const url = job.applyUrl;
 		const newJob: Job = {
 			jobTitle: title,
 			companyName: company,
 			isRemote: job.remotes.length > 0 && job.remotes[0].name === "Remote",
 			locations: locations,
 			id: id,
+			url: url,
 		};
 		return newJob;
 	});

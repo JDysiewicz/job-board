@@ -6,6 +6,7 @@ export interface Job {
 	locations: JobLocation[];
 	isRemote: boolean;
 	id: string;
+	url: string;
 }
 
 export interface JobLocation {

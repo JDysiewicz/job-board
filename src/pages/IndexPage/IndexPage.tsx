@@ -5,7 +5,7 @@ import { Container, Title } from "./styles";
 const IndexPage: React.FC = () => {
 	return (
 		<Container>
-			<Title>Jobs</Title>
+			<Title>Job Board</Title>
 			<JobTableWrapper />
 		</Container>
 	);

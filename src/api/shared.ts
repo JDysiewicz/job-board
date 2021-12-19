@@ -11,6 +11,7 @@ export interface JobApiResponse {
 	company: Company;
 	cities: City[];
 	remotes: Remote[];
+	applyUrl: string;
 }
 
 // interfaces as API could change; this is minimum needed for our business logic

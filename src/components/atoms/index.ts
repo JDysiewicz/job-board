@@ -1,2 +1,3 @@
 import JobEntry from "./JobEntry";
-export { JobEntry };
+import LoaderSpinner from "./LoaderSpinner";
+export { JobEntry, LoaderSpinner };
