@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React, { useCallback } from "react";
+import React, { useMemo } from "react";
 import { ImCheckmark, ImCross } from "react-icons/im";
 
 type IconSize = "s" | "m" | "l";
@@ -12,7 +12,7 @@ interface IconProps {
 }
 
 const Icon: React.FC<IconProps> = ({ type, size }) => {
-	const renderIcon = useCallback(() => {
+	const icon = useMemo(() => {
 		switch (type) {
 			case "check":
 				return (
@@ -38,7 +38,7 @@ const Icon: React.FC<IconProps> = ({ type, size }) => {
 		}
 	}, [type]);
 
-	return <Container size={size}>{renderIcon()}</Container>;
+	return <Container size={size}>{icon}</Container>;
 };
 
 export default Icon;

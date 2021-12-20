@@ -1,6 +1,6 @@
 # Jobs Board (Up Learn)
 
-This is the Front End take-home test for Up Learn.
+This is the Front End take-home assignment for Up Learn.
 
 ## Brief
 
@@ -48,14 +48,14 @@ Nowadays, common practice is to use the custom hook pattern instead, whereby log
 
 The structure of this app is one I've played around with a little personally/in work projects which seems to work well. It is based on the principles of [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) which seeks to organise components (`component` folders have a tendency to get messy otherwise... not that I know from personal experience...).
 
-The general idea is to split components up into a few categories: through personal experience I've found the following split and general rule-of-thumb seems to go well:
+The general idea is to split components up into a few categories: through personal experience I've found the following splits and general rules-of-thumb work nicely:
 
-- _Atoms_: Effectively wrappers around basic HTML tags, very small, don't depend on anything other than raw HTML/cannot be decomposed further (e.g. a Button).
-- _Molecules_: Made up of Atoms; often times common website features (e.g. Headers and Footers).
-- _Organisms_: Made up of molecules; often times encompass lots of moving parts (e.g. Forms, Side panels, etc).
-- _Pages_: Make up the basic skeleton of a single "page" in a SPA; often one page per route (e.g. in a standard CRUD app, there would probably be a `Home.tsx`, `Dashboard.tsx`, `Admin.tsx` etc corresponding to `/home`, `/dashboard`, and `/admin` respectively.).
+- **Atoms**: Effectively wrappers around basic HTML tags, very small, don't depend on anything other than raw HTML/cannot be decomposed further (e.g. a `Button`).
+- **Molecules**: Made up of Atoms; often times common website features (e.g. `Header` and `Footer`).
+- **Organisms**: Made up of molecules; often times encompass lots of moving parts (e.g. `Form`, `SidePanel`, etc).
+- **Pages**: Make up the basic skeleton of a single "page" in a SPA; often one page per route (e.g. in a standard CRUD app, there would probably be a `HomePage.tsx`, `DashboardPage.tsx`, `AdminPage.tsx` etc corresponding to `/home`, `/dashboard`, and `/admin` respectively.).
 
-Of course things are never normally this simple, and questions like _"what is a molecule vs organism?"_ are expected. The idea is to organise components in _relation to each other_. What was a _molecule_ in one project may be an _organism_ in another and vice-versa - it's mainly a way to manage dependencies between components. Have a component which depends on 3 other kind-of-large components? It's probably an organism. Have a component which can't really be reduced beyond a few HTML tags? It's probably an atom.
+Of course things are never normally this simple, and questions like _"what is a molecule vs organism?"_ are expected. The idea is to organise components in _relation to each other_. What was a molecule in one project may be an organism in another and vice-versa - it's mainly a way to manage dependencies between components. Have a component which depends on 3 other kind-of-large components? It's probably an organism. Have a component which can't really be reduced beyond a few HTML tags? It's probably an atom.
 
 **NB: This covers the separation of components based on their dependency on each other; atoms can contain large amounts of functionality as functionality should be abstracted away in custom hooks.**
 
@@ -67,11 +67,13 @@ As stated above, much of the logic for this application resides in the `hooks/` 
 
 ### TypeScript
 
-The choice of TypeScript-flavoured React mimics the pros that static typing brings to most projects (e.g. eaiser scaling for multiple devs, clearer intent, automated compile-time checking, etc).
+The choice of TypeScript-flavoured React mimics the pros that static typing brings to most projects (e.g. eaiser scaling for multiple devs, clearer intent, automated compile-time checking, etc), therefore I won't elaborate much more on this.
+
+In general, I feel every React project should be in one of two states: either written _in_ TypeScript, or currently migrating _to_ TypeScript :D.
 
 ### ESLint
 
-Defacto standard linter used in JavaScript/TypeScript applications; pre-loaded with TypeScript compatability.
+Defacto standard linter used in JavaScript/TypeScript applications; pre-loaded with TypeScript compatability. I also added the `jsx-a11y` plugin to ensure basic accessibility standards were being met.
 
 ### Prettier
 
@@ -79,7 +81,38 @@ Defacto standard formatter used in JavaScript/TypeScript applications, also auto
 
 ## Scripts
 
-There are a couple custom npm scripts to help automate some things.
+There are a couple custom npm scripts to help automate some things:
 
-- `npm run lint`: Will run eslint against all ts/tsx files in src/ ; allows for automated lint-checking in CI pipeline
-- `npm run format`: Will format code with Prettier config; again can be done automatically as part of CI (run with --check to test this and fail CI pipeline if not formatted correctly).
+- `npm run lint`: Runs eslint against all ts/tsx files in src/ ; allows for automated lint-checking in CI pipeline.
+- `npm run format`: Formats code with Prettier config; again can be done automatically as part of CI (run with --check to test this and fail CI pipeline if not formatted correctly).
+- `npm run cy:run`: Runs cypress tests in headless mode.
+
+## Issues Encountered
+
+I encountered a few issues throughout the assignment, the main ones being business-level decisions which would need discussion with the wider-team to solve correctly.
+
+- **Design**: My design skill isn't amazing, and so having some wireframes to develop against would smooth this over nicely. This would require spending a decent chunk of time presenting various designs with collaboration from many others, and so the design used focused very simply on being accessible (WCAG AA standard) and minimal.
+- **Data Model**: I should have spent more time planning out the shape of data to be used in the business logic. I think separating out the data shapes from the API and that used in the business logic is a good idea (means business logic does not depend on a specific API implementation/shape), however I don't think I got it quite right. The `remotes` section in particular was tricky to model properly as different locations for the same job could theoretically offer different remote-eligability.
+- **Styling**: I opted for a very basic CSS-in-JS style for the styling of the application. This has the advantage of being declarative, however it has not been used to its greatest extent. For this rough PoC-style assignment, I should have used some form of component library/styling library (e.g. chakra, tailwind, bootstrap), in which case I would invest time into learning the library properly.
+
+## Highlights
+
+There are a few things about this assignment I am quite happy with, and believe were good decisions.
+
+- **Linter/Formatter**: The automation of linting/formatting is essential to maintaining software quality, and I believe the scripts available (e.g. automated lint, format, and check) lend themselves well to a future CI/deployment process (e.g. failing pipeline due to invalid format/lint).
+- **API Modularity**: I feel I did a good job separating the business logic from implementation details (e.g. the `JobAPIResponse` type from the API is separate to that which is used for the application itself: `Job`). This means the application does not depend on a specific API/data shape, and only conversion functions would be needed in the event of a change in one of these.
+- **Hook/Component Separation**: While there is only one custom hook, I think the principle being employed around separation of logic and presentation is a good step. Extracting business logic into custom hooks, leaving components for pure display, is a nice way to separate concerns whilst avoiding many wrapper components in the future.
+- **Application Structure**: I feel the application is well organised and easy to navigate; the separation of components/pages/hooks is extensible to larger codebases and lends itself well to component re-use.
+- **Index file for exports**: I think it makes imports/exports neater to have an `index.ts` file responsible for importing/exporting various components/hooks rather than other files importing them directly. The separation makes it easier to reorganise component structure without imports being messed up, and I think it looks neater when importing a larger amount of other components.
+
+## Extensions
+
+As can be seen, this is not a complete application. I spent a fair amount of time putting the appropriate infrastructure in place to ensure long-term success of the application (e.g. linter, formatter, automated testing, app structure), and so lacked the time to add much in the way of functionality. Even on this small assignment, there are many things that I would add/change given more time or a wider team.
+
+- **Redesign**: The design is very minimal with basic use of color (enough to add some whilst still being accessible according to WCAG AA standard). As such, it's not exactly inspiring or brand-friendly and so would need a complete redesign.
+- **Pagination**: Having the entire dataset load on the screen at once isn't great; both from a visual perspective and performance perspective. Having some form of pagination/"scroll to see more" functionality would improve the UX of this table.
+- **Mobile**: Mobile has not been considered; a separate design would probably be needed, and perhaps a redesign of the HTML used. HTML tables, especially when they get large, are hard to make mobile-friendly. Seeing as this is a job board, mobile is probably the more likely vector for user interaction, and so this application should probably be designed mobile-first.
+- **Data Shape**: I'm not perfectly happy with the way I'm displaying the data; for instance what if a job has two locations, one being remote-eligable but one not? These edge cases break this design. Also the locations would probably be better displayed as a dropdown of sorts; especially as the concatenation of locations leads to a large column size.
+- **Testing**: There is somewhat minimal testing here; the `JobTable` component has a decent test suite behind it as this is the core of the application so far, and some automated E2E testing has been set up with Cypress. However neither of these testing methods are being used to their fullest extent. For instance, the lack of tests for the `atom`s and the lack of a test API which could've been used in the automated E2E tests to guarentee a specific data set being returned.
+- **Images**: There's a distinct lack of images/color in the table. Company logos should probably be added at the very least, or a decent placeholder if unavailable.
+- **Filtering**: A large part about a job search is being able to filter for specific matches - by-and-large the current iteration of this job board just vomits the data out into a strucutred table. The ability to restrict searches to specific countries/cities, filter for remote-eligability, and search job titles are the minimum functionality I would expect from a job board, and they are currently lacking in this version.

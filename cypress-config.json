@@ -1,54 +1,6 @@
 {
 	"baseUrl": "http://localhost:3000/",
 	"env": {
-		"REACT_APP_API_HOST": "https://api.graphql.jobs/",
-		"TEST_DATA": {
-			"jobs": [
-				{
-					"id": "cjz1ipl9x009a0758hg68h7vy",
-					"title": "Senior Fullstack Engineer - Platform",
-					"company": {
-						"name": "Segment"
-					},
-					"applyUrl": "https://grnh.se/2d8f45d71",
-					"countries": [],
-					"cities": [
-						{
-							"id": "cjtu8et7j001a0824jwrtf4d1",
-							"name": "San Francisco",
-							"country": {
-								"name": "United States"
-							},
-							"slug": "san-francisco"
-						}
-					],
-					"remotes": []
-				},
-				{
-					"id": "cjwt2a8j700by0793lnvon5c9",
-					"title": "Full Stack JavaScript Developer",
-					"company": {
-						"name": "Unrealists"
-					},
-					"applyUrl": "https://docs.google.com/forms/d/1zlEfXsBMwxmQSHzAsYV-ZNM896yMoV4NHRwPg-GhsEE/",
-					"countries": [],
-					"cities": [
-						{
-							"id": "cjuv51m3s00fc0735xosrvscp",
-							"name": "Berlin",
-							"country": {
-								"name": "Germany"
-							},
-							"slug": "berlin"
-						}
-					],
-					"remotes": [
-						{
-							"name": "Remote"
-						}
-					]
-				}
-			]
-		}
+		"REACT_APP_API_HOST": "https://api.graphql.jobs/"
 	}
 }
