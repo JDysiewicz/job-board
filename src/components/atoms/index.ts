@@ -1,3 +1,4 @@
 import LoaderSpinner from "./LoaderSpinner";
 import ExternalLink from "./ExternalLink";
-export { LoaderSpinner, ExternalLink };
+import Icon from "./Icon";
+export { LoaderSpinner, ExternalLink, Icon };

@@ -1,8 +1,9 @@
 import request from "graphql-request";
 import { useQuery } from "react-query";
-import { endpoint, JobApiResponse } from "../api";
-import { GET_JOBS } from "../graphql/queries";
-import { Job, JobLocation } from "../shared/types";
+import { endpoint } from "../api";
+import { GET_JOBS } from "../api/graphql/queries";
+import { Job, JobLocation } from "../shared";
+import { JobApiResponse } from "../shared/types";
 
 interface ApiResponse {
 	jobs: JobApiResponse[];
@@ -17,6 +18,7 @@ export const useGetJobs = () => {
 	});
 };
 
+// convert to the Job type using in business logic
 const convertToJobs = (apiResponse: JobApiResponse[]): Job[] => {
 	const jobs: Job[] = apiResponse.map((job) => {
 		const title = job.title;

@@ -1,19 +1,9 @@
 import styled from "@emotion/styled";
 import React from "react";
-
 interface ExternalLinkProps {
 	url: string;
 	text: string;
 }
-
-const StyledLink = styled.a`
-	text-decoration: none;
-	color: var(--primary-blue-700);
-	font-weight: bold;
-	:hover {
-		text-decoration: underline;
-	}
-`;
 
 const ExternalLink: React.FC<ExternalLinkProps> = ({ url, text }) => {
 	return (
@@ -24,3 +14,12 @@ const ExternalLink: React.FC<ExternalLinkProps> = ({ url, text }) => {
 };
 
 export default ExternalLink;
+
+const StyledLink = styled.a`
+	text-decoration: none;
+	color: var(--primary-blue-700);
+	font-weight: bold;
+	:hover {
+		text-decoration: underline;
+	}
+`;

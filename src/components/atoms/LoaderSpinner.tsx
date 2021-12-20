@@ -1,9 +1,10 @@
 import React from "react";
 import Loader from "react-loader-spinner";
-
 interface LoaderSpinnerProps {
-	size: "xs" | "s" | "m" | "l" | "xl";
+	size: LoaderSpinnerSize;
 }
+
+type LoaderSpinnerSize = "xs" | "s" | "m" | "l" | "xl";
 
 const LoaderSpinner: React.FC<LoaderSpinnerProps> = ({ size }) => {
 	const spinnerSize = {
