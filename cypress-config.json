@@ -1,5 +1,5 @@
 {
-	"baseUrl": "http://172.20.110.186:3000/",
+	"baseUrl": "localhost:3000/",
 	"env": {
 		"REACT_APP_API_HOST": "https://api.graphql.jobs/",
 		"TEST_DATA": {

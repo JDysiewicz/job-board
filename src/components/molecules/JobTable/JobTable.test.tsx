@@ -77,6 +77,6 @@ test("valid data displayed in table", () => {
 	const testData = screen.getByText(data[0].companyName, { exact: false });
 	expect(testData).toBeInTheDocument();
 
-	const checkCrossImg = screen.getByRole("img");
-	expect(checkCrossImg).toBeInTheDocument();
+	const checkCrossImg = screen.getAllByRole("img");
+	expect(checkCrossImg).toHaveLength(2);
 });

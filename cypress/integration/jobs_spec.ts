@@ -19,6 +19,6 @@ describe("Index page", () => {
 		cy.get("tr").should("have.length.above", 2);
 
 		// checkmarks/cross
-		cy.get('[role]="img"').should("exist");
+		cy.get('[role="img"]').should("exist");
 	});
 });
