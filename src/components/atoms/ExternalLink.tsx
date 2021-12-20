@@ -7,7 +7,7 @@ interface ExternalLinkProps {
 
 const ExternalLink: React.FC<ExternalLinkProps> = ({ url, text }) => {
 	return (
-		<StyledLink href={url} target="_blank" rel="noreferrer">
+		<StyledLink role="link" href={url} target="_blank" rel="noreferrer">
 			{text}
 		</StyledLink>
 	);

@@ -5,7 +5,7 @@ import { Container, StyledHeader } from "./style";
 const NotFoundPage: React.FC = () => {
 	return (
 		<Container>
-			<StyledHeader>404 Page Not Found</StyledHeader>
+			<StyledHeader role="alert">404 Page Not Found</StyledHeader>
 			<h2>
 				<Link to="/">Click here</Link> to return
 			</h2>

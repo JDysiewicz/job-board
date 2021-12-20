@@ -7,5 +7,5 @@
 		"plugin:@typescript-eslint/recommended",
 		"plugin:jsx-a11y/recommended"
 	],
-	"ignorePatterns": ["src/**/__tests__", "cypress"]
+	"ignorePatterns": ["src/**/__tests__", "cypress", "src/**/*.test"]
 }

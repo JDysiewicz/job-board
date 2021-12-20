@@ -16,12 +16,14 @@ const LoaderSpinner: React.FC<LoaderSpinnerProps> = ({ size }) => {
 	};
 
 	return (
-		<Loader
-			type="Circles"
-			color="var(--primary-blue-500)"
-			height={spinnerSize[size]}
-			width={spinnerSize[size]}
-		/>
+		<div role="progressbar">
+			<Loader
+				type="Circles"
+				color="var(--primary-blue-500)"
+				height={spinnerSize[size]}
+				width={spinnerSize[size]}
+			/>
+		</div>
 	);
 };
 

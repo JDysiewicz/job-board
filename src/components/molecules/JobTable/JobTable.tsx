@@ -11,12 +11,13 @@ const JobTable: React.FC = () => {
 	const { data, error, status } = useGetJobs();
 
 	if (status === "loading") return <LoaderSpinner size="xl" />;
-	if (status === "error") return <span>Error: {error?.message}</span>;
+	if (status === "error")
+		return <span role="alert">Error: {error?.message}</span>;
 	if (!data) return <Navigate replace to="/500" />;
 
 	return (
 		<Container>
-			<Table>
+			<Table role="table">
 				<thead>
 					<tr>{renderTableHeadings(tableHeadings)}</tr>
 				</thead>

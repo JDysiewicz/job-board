@@ -4,32 +4,41 @@ import { ImCheckmark, ImCross } from "react-icons/im";
 
 type IconSize = "s" | "m" | "l";
 
+type IconType = "check" | "cross";
+
 interface IconProps {
-	type: "check" | "cross";
+	type: IconType;
 	size: IconSize;
 }
 
 const Icon: React.FC<IconProps> = ({ type, size }) => {
-	// switch for all icons; possibly not extensible?
-	// useCallback to prevent re-declaration on every render
-	const icon = useCallback(() => {
+	const renderIcon = useCallback(() => {
 		switch (type) {
 			case "check":
 				return (
 					<ImCheckmark
+						role="img"
+						aria-label="green tick"
 						style={{
 							color: "var(--accent-green-500)",
 						}}
 					/>
 				);
 			case "cross":
-				return <ImCross style={{ color: "var(--accent-red-700)" }} />;
+				return (
+					<ImCross
+						role="img"
+						aria-label="red x"
+						style={{ color: "var(--accent-red-700)" }}
+					/>
+				);
+
 			default:
 				return <></>;
 		}
 	}, [type]);
 
-	return <Container size={size}>{icon}</Container>;
+	return <Container size={size}>{renderIcon()}</Container>;
 };
 
 export default Icon;

@@ -1,2 +1,3 @@
 // unnessary for now
-export default {};
+const todo = "todo";
+export { todo };
